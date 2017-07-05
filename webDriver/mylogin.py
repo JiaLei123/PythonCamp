@@ -23,7 +23,7 @@ def open(driver):
     driver.find_element_by_xpath(".//*[@onclick='queryList();']").click()
 
 if __name__ == "__main__":
-    driver = webdriver.Chrome('D:\Tools\DevTools\WebUI\chromedriver.exe')
+    driver = webdriver.Chrome('WebUI\chromedriver.exe')
     #driver = webdriver.Chrome()
     login_by_erp(driver,"***","****")
     #open(driver)
