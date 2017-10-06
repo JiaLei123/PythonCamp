@@ -13,7 +13,10 @@ class Fibs(object):
     def __iter__(self):
         return self
 
+
 if __name__ == "__main__":
     fibs = Fibs()
     for fib in fibs:
-        print fib, ','
+        if fib > 1000:
+            break
+        print fib
