@@ -1,6 +1,7 @@
 # coding=utf-8
 
 import sys
+import uuid
 from optparse import OptionParser
 
 from Crypto.Cipher import AES
@@ -8,11 +9,15 @@ from binascii import b2a_hex, a2b_hex
 
 
 class prpcrypt():
-    def __init__(self, key):
-        self.key = key
+    def __init__(self):
+        self.key = prpcrypt.get_mac_address()
         self.mode = AES.MODE_CBC
 
         # 加密函数，如果text不是16的倍数【加密文本text必须为16的倍数！】，那就补足为16的倍数
+    @staticmethod
+    def get_mac_address():
+        mac = uuid.UUID(int=uuid.getnode()).hex[-12:].upper()
+        return ":".join([mac[e:e + 2] for e in range(0, 11, 2)])
 
     def encrypt(self, text):
         cryptor = AES.new(self.key, self.mode, self.key)
@@ -44,14 +49,11 @@ usage = """
 if __name__ == '__main__':
     parser = OptionParser()
     parser.add_option('--data', '-d', dest='data', default='0123456789')
-
     parser.add_option('--file', '-f', dest='file', default='pw')
-
-    parser.add_option('--code', '-c', dest='key', default='keyskeyskeyskeys')
 
     options, args = parser.parse_args()
 
-    pc = prpcrypt(options.key)  # 初始化密钥
+    pc = prpcrypt()
     e = pc.encrypt(options.data)
     with open(options.file, 'w') as pw_file:
         line = str(e, encoding="utf-8")
