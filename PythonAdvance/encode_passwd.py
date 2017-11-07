@@ -16,8 +16,7 @@ class prpcrypt():
         # 加密函数，如果text不是16的倍数【加密文本text必须为16的倍数！】，那就补足为16的倍数
     @staticmethod
     def get_mac_address():
-        mac = uuid.UUID(int=uuid.getnode()).hex[-12:].upper()
-        return ":".join([mac[e:e + 2] for e in range(0, 11, 2)])
+        return uuid.UUID(int=uuid.getnode()).hex[-16:].upper()
 
     def encrypt(self, text):
         cryptor = AES.new(self.key, self.mode, self.key)
