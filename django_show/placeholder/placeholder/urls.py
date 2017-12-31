@@ -16,6 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+import views
+import placeholder
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.index, name='homepage'),
+    url(r'^image/(?P<width>[0-9]+)x(?P<height>[0-9]+)/$', placeholder.placeholder, name='placeholder')
 ]
