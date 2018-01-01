@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django Placeholder Images</title>
+    <link rel="stylesheet" href="{% static 'site.cs' %}" type="text/css">
+</head>
+<body>
+    <h1>Django PlaceHolder</h1>
+    <p>This server can be used for serving placeholder images for any web page.</p>
+    <pre>
+        &lt;img src="{{ example }}" &gt;
+    </pre>
+    <h2>Example</h2>
+    <ul>
+        <li><img src="{% url 'placeholder' width=50 height=50 %}"></li>
+    </ul>
+</body>
+</html>
