@@ -120,3 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [os.path.join(PLACE_BASE_DIR, 'static')]
+
+SITE_PAGES_DIRECTORY = os.path.join(PLACE_BASE_DIR, 'pages')
