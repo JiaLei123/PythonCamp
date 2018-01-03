@@ -23,9 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ove_7)+-&9@xyz*zo%0-62)f%1rw58e@pznmfhzjvp+8lh13o!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
+
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sitebuilder',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +127,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(PLACE_BASE_DIR, 'static')]
 
 SITE_PAGES_DIRECTORY = os.path.join(PLACE_BASE_DIR, 'pages')
+
+SITE_OUTPUT_DIRECTORY = os.path.join(PLACE_BASE_DIR, '_build')
+
+STATIC_ROOT = os.path.join(PLACE_BASE_DIR, '_build', 'static')
