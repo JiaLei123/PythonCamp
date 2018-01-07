@@ -34,6 +34,9 @@
                         <li {% if slug == 'contact'%} class="active" {% endif %}>
                             <a href="{% url 'page' 'contact'%}">Contact</a>
                         </li>
+                        <li {% if slug == 'pricing'%} class="active" {% endif %}>
+                            <a href="{% url 'page' 'pricing'%}">Pricing</a>
+                        </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li {% if slug == 'login'%} class="active" {% endif %}>
