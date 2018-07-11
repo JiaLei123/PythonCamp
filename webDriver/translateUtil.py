@@ -30,6 +30,6 @@ class Translator:
 if __name__=='__main__':
     translator = Translator()
     result = translator.translate_words(u"幫我搜索一個關於 <topic> 的話題")
-    print result
+    print (result)
 
 
